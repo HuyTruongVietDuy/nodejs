@@ -1,0 +1,27 @@
+<h1>Danh sách sản phẩm</h1>
+<style>
+  .card{
+    float: left;
+    margin: 20px;
+  }
+</style>
+<% for (let s of listSach) { %>
+  <div class="card" style="width: 18rem;">
+      <img src="/images/<%= s.images %>" class="card-img-top" alt="..." style="height: 300px; width: 100%;">
+      <div class="card-body">
+          <h5 class="card-title"><%= s.nameProduct %></h5>
+          <h5><%= s.priceProduct %></h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <!-- Add the link to the product detail page -->
+          <a href="/chitiet/<%= s.idProduct %>" class="btn btn-primary">Chi tiết sản phẩm</a>
+          <!-- You can replace "/chitiet/" with the actual route you want for the detail page -->
+      </div>
+  </div>
+<% } %>
+
+
+
+
+
+
+

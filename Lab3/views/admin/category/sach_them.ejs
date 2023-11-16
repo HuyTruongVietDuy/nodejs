@@ -1,0 +1,106 @@
+<%- include('../layout/header') %>
+
+<%- include('../layout/aside') %>
+<style>
+    .product-form {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.form-input,
+.form-textarea,
+.form-file {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-button:hover {
+  background-color: #45a049;
+}
+</style>
+
+      
+      
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb">
+                <div class="row align-items-center">
+                    <div class="col-md-6 col-8 align-self-center">
+                        <h3 class="page-title mb-0 p-0">Dashboard</h3>
+                        <div class="d-flex align-items-center">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Danh Sách Sản Phẩm [ ListProduct ] > Thêm Sản Phẩm</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+         
+
+            <div class="container-fluid">
+              <!-- views/admin/category/sach_them.ejs -->
+
+                <form action="/addnewloai" method="post" class="product-form">
+
+                  <label for="idCategory" class="form-label">Id Loại:</label>
+                  <input type="text" id="idCategory" name="idCategory" required class="form-input" value="" disabled>
+
+                  <!-- Tên loại -->
+                  <label for="nameCategory" class="form-label">Tên Loại:</label>
+                  <input type="text" id="nameCategory" name="nameCategory" required class="form-input">
+
+                  <!-- Nút gửi -->
+                  <button type="submit" class="form-button">Thêm Loại</button>
+                </form>
+
+            
+              </div>
+              
+          
+            
+            
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <%- include('../layout/footer') %>

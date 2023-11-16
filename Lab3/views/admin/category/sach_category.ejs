@@ -1,0 +1,97 @@
+<%- include('../layout/header') %>
+
+<%- include('../layout/aside') %>
+      
+      
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb">
+                <div class="row align-items-center">
+                    <div class="col-md-6 col-8 align-self-center">
+                        <h3 class="page-title mb-0 p-0">Dashboard</h3>
+                        <div class="d-flex align-items-center">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Danh Sách Loại [ Category ]</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div><br>
+            <div class="col-md-1 col-4 ">
+                <div class="text-end upgrade-btn">
+                    <a href="/admin/add-category"
+                        class="btn btn-danger d-none d-md-inline-block text-white" target="_blank"> ADD Category </a>
+                </div>
+            </div>   
+
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Danh sách loại sản phẩm</h4>
+                                <h6 class="card-subtitle">Dữ liệu từ cơ sở dữ liệu</h6>
+                                <div class="table-responsive">
+                                    <table class="table user-table">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-top-0">ID Loại</th>
+                                                <th class="border-top-0">Tên loại</th>
+                                                <th class="border-top-0">Ngày tạo</th>
+                                                <th class="border-top-0">Ngày chỉnh sửa</th>
+                                                <th class="border-top-0">Chức năng</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% for (let i = 0; i < loaiSach.length; i++) { %>
+                                                <tr>
+                                                    <td><%= loaiSach[i].idCategory %></td>
+                                                    <td><%= loaiSach[i].nameCategory %></td>
+                                                    <td><%= loaiSach[i].dateCategory %></td>
+                                                    <td><%= loaiSach[i].dateEditCategory %></td>
+                                                    <td>
+                                                        <!-- Liên kết đến trang sửa -->
+                                                        <a href="/admin/editcategory/<%= loaiSach[i].idCategory %>" class="btn btn-primary">Sửa</a>
+                                                  
+                                                        <!-- Liên kết đến trang xóa -->
+                                                        <a href="/admin/deletecategory/<%= loaiSach[i].idCategory %>" class="btn btn-danger">Xóa</a>
+                                                      </td>
+                                                </tr>
+                                            <% } %>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+          
+            
+            
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <%- include('../layout/footer') %>

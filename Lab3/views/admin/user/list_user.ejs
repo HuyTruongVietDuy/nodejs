@@ -1,0 +1,64 @@
+<%- include('../layout/header') %>
+
+<%- include('../layout/aside') %>
+
+<div class="page-wrapper">
+  <div class="page-breadcrumb">
+    <div class="row align-items-center">
+      <div class="col-md-6 col-8 align-self-center">
+        <h3 class="page-title mb-0 p-0">Dashboard</h3>
+        <div class="d-flex align-items-center">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Danh Sách Người Dùng [ ListUser ]</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Danh sách người dùng</h4>
+            <h6 class="card-subtitle">Dữ liệu từ cơ sở dữ liệu</h6>
+            <div class="table-responsive">
+              <table class="table user-table">
+                <thead>
+                  <tr>
+                    <th class="border-top-0">ID Người Dùng</th>
+                    <th class="border-top-0">Họ và Tên</th>
+                    <th class="border-top-0">Tên Đăng Nhập</th>
+                    <th class="border-top-0">Quyền</th>
+                    <th class="border-top-0">Chức năng</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for (let i = 0; i < userList.length; i++) { %>
+                    <tr>
+                      <td><%= userList[i].id %></td>
+                      <td><%= userList[i].fullname %></td>
+                      <td><%= userList[i].username %></td>
+                      <td><%= userList[i].rule %></td>
+                      <td>
+                        <!-- Nút Sửa -->
+                        <a href="/admin/edituser/<%= userList[i].id %>" class="btn btn-primary" onclick="return confirm('Bạn có chắc muốn sửa không?')">Sửa</a>
+                        <!-- Nút Xóa -->
+                        <a href="/admin/deleteuser/<%= userList[i].id %>" class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn Xóa không?')">Xóa</a>
+                      </td>
+                    </tr>
+                  <% } %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include('../layout/footer') %>
